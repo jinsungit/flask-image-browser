@@ -14,8 +14,8 @@ h1 {
 
 .gallery {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 20px;
 }
 
@@ -71,4 +71,71 @@ td img:hover {
     background-color: #333;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.gallery td p {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.gallery-item {
+    width: 18%; /* Slightly less than 20% to account for margins */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-item p {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* You may want to add media queries for better responsiveness */
+@media (max-width: 1200px) {
+    .gallery-item {
+        width: 23%; /* 4 items per row */
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-item {
+        width: 31%; /* 3 items per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-item {
+        width: 48%; /* 2 items per row */
+    }
+}
+
+@media (max-width: 400px) {
+    .gallery-item {
+        width: 100%; /* 1 item per row */
+    }
+}
+
+.controls {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.show-all-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.show-all-btn:hover {
+    background-color: #0056b3;
 }
