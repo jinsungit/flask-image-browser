@@ -1,141 +1,189 @@
 /* static/styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-top: 20px;
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 1200px;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-td img {
-    width: 100%;
-    height: auto;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-td img:hover {
-    transform: scale(1.05);
-    border-color: #333;
-}
-
-.pagination {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.pagination a, .pagination span {
-    margin: 0 5px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.pagination a:hover {
-    text-decoration: underline;
-}
-
-.pagination .current-page {
-    font-weight: bold;
-    color: #fff;
-    background-color: #333;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.gallery td p {
-    font-size: 0.8em;
-    color: #666;
-    margin-top: 5px;
-}
-
-.gallery-item {
-    width: 18%; /* Slightly less than 20% to account for margins */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.gallery-item img {
-    max-width: 100%;
-    height: auto;
-}
-
-.gallery-item p {
-    font-size: 0.8em;
-    color: #666;
-    margin-top: 5px;
-}
-
-/* You may want to add media queries for better responsiveness */
-@media (max-width: 1200px) {
-    .gallery-item {
-        width: 23%; /* 4 items per row */
-    }
-}
-
-@media (max-width: 900px) {
-    .gallery-item {
-        width: 31%; /* 3 items per row */
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery-item {
-        width: 48%; /* 2 items per row */
-    }
-}
-
-@media (max-width: 400px) {
-    .gallery-item {
-        width: 100%; /* 1 item per row */
-    }
+    color: #2c3e50;
 }
 
 .controls {
-    margin-bottom: 20px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .show-all-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #3498db;
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .show-all-btn:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-item {
+    flex: 1;
+    padding: 10px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.gallery-item:last-child {
+    border-right: none;
+}
+
+.gallery-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.gallery-item p {
+    margin: 0;
+    font-size: 0.9em;
+    word-break: break-word;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #3498db;
+    color: #3498db;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.pagination .current-page {
+    background-color: #3498db;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .gallery-row {
+        flex-direction: column;
+    }
+
+    .gallery-item {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .gallery-item:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Add these new styles for the landing page */
+.landing-page {
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Styles for the landing page form remain unchanged */

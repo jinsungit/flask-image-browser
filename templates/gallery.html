@@ -14,12 +14,19 @@
     </div>
     <div class="gallery">
         {% for row in rows %}
-            {% for header in headers %}
-                <div class="gallery-item">
-                    <img src="{{ url_for('static', filename=row[header]) }}" alt="Image">
-                    <p>{{ row[header] }}</p>
-                </div>
-            {% endfor %}
+            <div class="gallery-row">
+                {% for header in headers %}
+                    <div class="gallery-item">
+                        <h3>{{ header }}</h3>
+                        {% if row[header]['type'] == 'image' %}
+                            <img src="{{ url_for('static', filename=row[header]['path']) }}" alt="Image">
+                            <p>{{ row[header]['path'] }}</p>
+                        {% else %}
+                            <p>{{ row[header]['value'] }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
         {% endfor %}
     </div>
     {% if page != 'all' %}

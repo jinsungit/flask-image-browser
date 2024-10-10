@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Setup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function toggleInputMethod() {
+            var method = document.getElementById('input_method').value;
+            document.getElementById('file_upload').style.display = method === 'upload' ? 'block' : 'none';
+            document.getElementById('file_path').style.display = method === 'path' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body class="landing-page">
+    <div class="container">
+        <h1>Image Gallery Setup</h1>
+        <div class="card">
+            <form action="{{ url_for('load_csv') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="input_method">Choose input method:</label>
+                    <select id="input_method" name="input_method" onchange="toggleInputMethod()">
+                        <option value="upload">Upload CSV file</option>
+                        <option value="path">Input file path</option>
+                    </select>
+                </div>
+                <div id="file_upload" class="form-group">
+                    <label for="csv_file">CSV File:</label>
+                    <input type="file" id="csv_file" name="csv_file" accept=".csv">
+                </div>
+                <div id="file_path" class="form-group" style="display: none;">
+                    <label for="csv_path">CSV File Path:</label>
+                    <input type="text" id="csv_path" name="csv_path" placeholder="Enter the path to your CSV file">
+                </div>
+                <button type="submit">Load Images</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
