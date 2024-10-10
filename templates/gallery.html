@@ -15,16 +15,22 @@
     <div class="gallery">
         {% for row in rows %}
             <div class="gallery-row">
-                {% for header in headers %}
-                    <div class="gallery-item">
-                        <h3>{{ header }}</h3>
-                        {% if row[header]['type'] == 'image' %}
-                            <img src="{{ url_for('static', filename=row[header]['path']) }}" alt="Image">
-                            <p>{{ row[header]['path'] }}</p>
-                        {% else %}
+                <div class="gallery-item text-cell">
+                    {% for header in headers %}
+                        {% if row[header]['type'] != 'image' %}
+                            <h3>{{ header }}</h3>
                             <p>{{ row[header]['value'] }}</p>
                         {% endif %}
-                    </div>
+                    {% endfor %}
+                </div>
+                {% for header in headers %}
+                    {% if row[header]['type'] == 'image' %}
+                        <div class="gallery-item image-cell">
+                            <h3>{{ header }}</h3>
+                            <img src="{{ url_for('static', filename=row[header]['path']) }}" alt="Image">
+                            <p>{{ row[header]['path'] }}</p>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         {% endfor %}
